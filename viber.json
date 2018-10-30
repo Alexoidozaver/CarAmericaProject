@@ -1,0 +1,185 @@
+{
+	 	"settings": {
+		"name": "Mkitchen",
+		"system_name": "MKitch",
+		"avatar": "", 
+		"api_token": "№№№№№№№№№№№№№№№№№№№№",
+		"database": {
+			"host": "№№№№№№№№№№№№№№№№№№№№№№№№",
+			"user": "№№№№№№№№№№№№№№№№№№№№№№№№№",
+			"password": "№№№№№№№№№№№№№№№№№№№№№№№№",
+			"db": "№№№№№№№№№№№№№№№№№№№№№№№№№№№",
+			"prefix": ""
+		}
+	
+  },
+	"buttons": {
+		"car":"🚗 Авто",
+		"motosycle":"🏍 Мото",
+		"water":"⚓️ Водный",
+		"special":"🚜 Спец. техника",
+		"bicycle":"Велосипеды",
+		"quadrocopters":"Квадрокоптеры",
+		"extreme":"Экстрим",
+		"gyrotransport":"Гиротранспорт",
+		"back":"⬅️ Назад",
+		"menu":"⬅️ Меню",
+		"other":"🗄 Другое",
+		"no_matter":"🎲 Не важно",
+		"all":"🎲 Все варианты",
+		"more":"Еще марки",
+		"сancel":"Отмена",
+		"cancel":"Отмена",
+		"telephone":"Отправить номер телефона",
+		"give_found":"🔍 Показать найденное сейчас",
+		"next_auto":"Следующий автомобиль",
+		"Checkout":"Оформить заявку",
+		"next":"Вперед",
+		"photos":"Еще фото ({}/{})",
+		"description":"Подробное описание",
+		"site":"Перейти на сайт CarAmerica 🇺🇸",
+		"delivery":"Доставка груза из США 📦",
+		"about_us":"О компании CarAmerica 🇺🇸"
+
+	},
+	"keyboards": {
+		"main":[["{buttons[car]}","{buttons[motosycle]}"],["{buttons[special]}","{buttons[water]}"],["{buttons[other]}"]],
+		"other":[["{buttons[back]}"],["{buttons[bicycle]}","{buttons[quadrocopters]}"],["{buttons[extreme]}","{buttons[gyrotransport]}"],["{buttons[back]}"]],
+		"menu_no_metter":["{buttons[menu]}","{buttons[no_matter]}"],
+		"menu_all":["{buttons[menu]}","{buttons[all]}"],
+		"back_no_metter":["{buttons[back]}","{buttons[no_matter]}"],
+		"back_all":["{buttons[back]}","{buttons[all]}"],
+		"more_no_metter":["{buttons[more]}","{buttons[no_matter]}"],
+		"more_all":["{buttons[more]}","{buttons[all]}"],
+		"give_found":["{buttons[give_found]}"],
+		"connection":[["{buttons[telephone]}"],["{buttons[сancel]}"]],
+		"сancel": [["{buttons[сancel]}"]],
+		"buy_menu":[["{buttons[Checkout]}"],["{buttons[description]}","{buttons[photos]}"],["{buttons[back]}","{buttons[next]}"]],
+		"send_phone": [[["✅ Відправити номер телефону", "request_contact"]],["{buttons[cancel]}"]],
+		"description": [["{buttons[Checkout]}"],["{buttons[next_auto]}"]],
+		"PNM":{
+			"Type":"rich_media",
+			"ButtonsGroupColumns":6,
+			"ButtonsGroupRows":2,
+			"BgColor":"#FFFFFF",
+			"Buttons":[
+			{
+			"ButtonId":"1",
+			"Columns":6,
+			"Rows":1,
+			"BgColor": "#5540C9",
+			"ActionType":"reply",
+			"ActionBody":"",
+			"Text":"<font color=\"#FFFFFF\">{buttons[about_us]}</font>",
+			"Silent":true
+			},{
+			"ButtonId":"2",
+			"Columns":6,
+			"Rows":1,
+			"BgColor": "#5540C9",
+			"ActionType":"reply",
+			"ActionBody":"",
+			"Text":"<font color=\"#FFFFFF\">{buttons[delivery]}</font>",
+			"Silent":true
+			}]},
+		"1":{
+			"Type":"rich_media",
+			"ButtonsGroupColumns":6,
+			"ButtonsGroupRows":1,
+			"BgColor":"#FFFFFF",
+			"Buttons":[
+			{
+			"ButtonId":"1",
+			"Columns":6,
+			"Rows":1,
+			"BgColor": "#5540C9",
+			"ActionType":"open-url",
+			"ActionBody":"",
+			"Text":"{buttons[about_us]}",
+			"Silent":true
+			}]},
+		"telephone":{
+		"Type": "keyboard",
+		"Buttons": [{
+			"ButtonId": "1",
+			"Columns": 6,
+			"Rows": 1,
+			"Text": "Отправить номер телефона",
+			"TextSize": "medium",
+			"TextHAlign": "center",
+			"TextVAlign": "bottom",
+			"ActionType": "share-phone",
+			"ActionBody":""
+
+		}, {
+			"Columns": 6,
+			"Rows": 1,
+			"Text": "{buttons[сancel]}",
+			"TextSize": "medium",
+			"TextHAlign": "center",
+			"TextVAlign": "bottom",
+			"ActionType": "reply",
+			"ActionBody": "{buttons[сancel]}"
+		}]
+	}
+	},
+	"instructions": [
+		{
+			"name": "main",
+			"steps": [
+				{"name": "start"},
+				{"name": "menu"},
+				{"name": "phone"}
+
+			]
+		},
+		{
+			"name":"find",
+			"steps":[
+				{"name":"check_prise"},
+				{"name":"check_model"},
+				{"name":"check_mark"},
+				{"name":"check_year"},
+				{"name":"check_run"},
+				{"name":"chack_transmission_car"},
+				{"name":"chack_kuzov_car"},
+				{"name":"chack_toil_car"},
+				{"name":"look"},
+				{"name":"query_mobile"},
+				{"name":"by_id"}
+			]
+		},
+		{
+			"name":"v",
+			"steps":[
+				{"name":"order"},
+				{"name": "phone"}
+			]
+		}
+	],
+	"trigers": [{"value":"/start", "instruction":"main", "step":"start"},
+		        {"value":"/admin", "instruction":"admin", "step":"main_panel"},
+		        {"value":"cancel", "instruction":"main", "step":"start"}
+	            ],
+
+	"static_data": {
+		"callback": {
+      "trigers": [],
+      "instructions": [
+		  {
+			  "name":"main",
+			  "steps":[
+				  {"name":"about_us"},
+				  {"name":"help"}
+			  ]
+		  }, {
+			  "name":"found",
+			  "steps":[
+				  {"name":"opisanue"},
+				  {"name":"query"}
+			  ]
+		  }
+	  ]
+    }
+	}
+}
